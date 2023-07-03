@@ -1,0 +1,135 @@
+body {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+html,
+body {
+  height: 100%;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+body {
+  -webkit-text-size-adjust: 100%;
+  font-variant-ligatures: none;
+  text-rendering: optimizeLegibility;
+  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h3,
+h4 {
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  color: #1f1d42;
+  background-color: #180148;
+}
+.card-hover {
+  width: 360px;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 32px -10px rgba(0, 0, 0, 0.08);
+}
+.card-hover:has(.card-hover-link:hover) .card-hover-extra {
+  transform: translateY(0);
+  transition: transform 0.3s;
+}
+.card-hover:hover .card-hover-content {
+  background-color: #dee8c2;
+  bottom: 100%;
+  transform: translateY(100%);
+  padding: 50px 60px;
+  transition: all 0.35s cubic-bezier(0.1, 0.72, 0.4, 0.97);
+}
+.card-hover:hover .card-hover-link {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  transition: all 0.3s 0.35s cubic-bezier(0.1, 0.72, 0.4, 0.97);
+}
+.card-hover:hover img {
+  transform: scale(1);
+  transition: all 0.35s 0.1s cubic-bezier(0.1, 0.72, 0.4, 0.97);
+}
+.card-hover-content {
+  width: 100%;
+  text-align: center;
+  background-color: #86b971;
+  padding: 0 60px 50px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translateY(0);
+  transition: all 0.35s 0.35s cubic-bezier(0.1, 0.72, 0.4, 0.97);
+  will-change: bottom, background-color, transform, padding;
+  z-index: 1;
+}
+.card-hover-content::before,
+.card-hover-content::after {
+  content: "";
+  width: 100%;
+  height: 120px;
+  background-color: inherit;
+  position: absolute;
+  left: 0;
+  z-index: -1;
+}
+.card-hover-content::before {
+  top: -80px;
+  -webkit-clip-path: ellipse(60% 80px at bottom center);
+  clip-path: ellipse(60% 80px at bottom center);
+}
+.card-hover-content::after {
+  bottom: -80px;
+  -webkit-clip-path: ellipse(60% 80px at top center);
+  clip-path: ellipse(60% 80px at top center);
+}
+.card-hover-title {
+  font-size: 1.5rem;
+  margin-bottom: 1em;
+}
+.card-hover-title span {
+  color: #2d7f0b;
+}
+.card-hover-text {
+  font-size: 0.75rem;
+}
+.card-hover-link {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translate(-50%, 10%);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  text-decoration: none;
+  color: #2d7f0b;
+  opacity: 0;
+  padding: 10px;
+  transition: all 0.35s;
+}
+.card-hover-link:hover svg {
+  transform: translateX(4px);
+}
+.card-hover-link svg {
+  width: 18px;
+  margin-left: 4px;
+  transition: transform 0.3s;
+}
